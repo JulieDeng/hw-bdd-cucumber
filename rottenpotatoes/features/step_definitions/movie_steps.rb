@@ -23,10 +23,7 @@ end
 Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   #  ensure that that e1 occurs before e2.
   #  page.body is the entire content of the page as a string.
-  pre = page.body.index(e1)
-  post = page.body.index(e2)
-  puts e1, first, e2, second
-  raise("Sequence is wrong") unless (pre < post)
+  raise("Error") unless (page.body.index(e1) < page.body.index(e2))
 end
 
 # Make it easier to express checking or unchecking several boxes at once
